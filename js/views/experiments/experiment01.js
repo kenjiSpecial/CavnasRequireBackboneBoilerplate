@@ -101,7 +101,7 @@ define([
 
         removeCanvas: function(){
             this.$el.removeClass("transfrom");
-            this.canvas.remove();
+            $(this.canvas).remove();
         },
         resize: function(){
             this.width = window.innerWidth;
