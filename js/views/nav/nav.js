@@ -19,20 +19,15 @@ define([
 
         changeStatus: function(){
 
-            console.log(navModel.get('id'));
-
             var li = $("#mainNav li a");
             li.removeClass("active");
 
             var $li = $("#mainNav li a").filter(function(index) {
-                console.log()
                 if(index==parseInt(CanvasControlModel.get('id'))){
                     return true;
                 }
             });
             $li.addClass("active")
-
-
 
         }
 

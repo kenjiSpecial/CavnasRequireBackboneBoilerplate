@@ -3,7 +3,7 @@ define([
     'underscore',
     'backbone',
     "mout/function/bind",
-    'models/canvasControlModel'
+    'models/canvasControlModel',
 ], function($, _, Backbone, bind, CanvasControlModel){
     window.requestAnimFrame = (function(){
         return  window.requestAnimationFrame       ||
