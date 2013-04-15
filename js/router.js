@@ -8,8 +8,9 @@ define([
     'views/experiments/experiment02',
     'views/experiments/experiment03',
     'views/nav/nav',
+    'views/date/date',
     'models/canvasControlModel'
-], function($, _, Backbone, HomeView, Experiment01View, Experiment02View, Experiment03View, NavView, CanvasControlModel){
+], function($, _, Backbone, HomeView, Experiment01View, Experiment02View, Experiment03View, NavView, DateView, CanvasControlModel){
     var AppRouter = Backbone.Router.extend({
         routes: {
             // Define some URL routes
@@ -48,7 +49,7 @@ define([
             experiment01View = new Experiment01View(pos);
             CanvasControlModel.set("previousId", 1);
             navView.changeStatus();
-
+            dateView.change("exp01");
 
         });
 
@@ -59,6 +60,7 @@ define([
             experiment02View = new Experiment02View();
             CanvasControlModel.set("previousId", 2);
             navView.changeStatus();
+            dateView.change("exp02");
 
         });
 
@@ -69,6 +71,7 @@ define([
             experiment03View = new Experiment03View();
             CanvasControlModel.set("previousId", 3);
             navView.changeStatus();
+            dateView.change("exp03");
 
         });
 
@@ -79,10 +82,14 @@ define([
             homeView = new HomeView();
             CanvasControlModel.set("previousId", 0);
             navView.changeStatus();
-
+            dateView.change("home");
         });
 
+        // Set the nav view.
         var navView = new NavView();
+
+        // Set the detail view.
+        var dateView = new DateView();
 
         $(window).resize(function(){
             switch (CanvasControlModel.get("id")){
