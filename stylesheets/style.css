@@ -153,3 +153,16 @@ body nav ul.nav a.active {
 body {
   background: black;
 }
+
+/* line 1, ../sass/_date.sass */
+#mainDate {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  text-shadow: -1px 1px 1px rgba(255, 255, 255, 0.5);
+  z-index: 100;
+  color: #222222;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  font-size: 1.5em;
+}
