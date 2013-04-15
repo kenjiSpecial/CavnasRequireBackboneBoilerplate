@@ -16,7 +16,7 @@ define([
 
     var Experiment01View = Backbone.View.extend({
         el: $("#container"),
-        initialize: function(){
+        initialize: function(pos){
 
             this.width = window.innerWidth;
             this.height = window.innerHeight;
@@ -34,6 +34,14 @@ define([
             this.heightNum = 6;
             this.heightMax = this.height * .4;
 
+            if(pos == undefined){
+                this.delX = 0;
+                this.delY = 0.5;
+            }
+            else{
+                this.mouseMove(pos);
+            }
+
             this.particles = [];
             this.heights = [];
 
@@ -48,8 +56,6 @@ define([
             }
 
             this.param = 1;
-            this.delY = 1;
-            this.delX = 1;
 
             this.lastTime = new Date().getTime();
             this.sumTime = 0;

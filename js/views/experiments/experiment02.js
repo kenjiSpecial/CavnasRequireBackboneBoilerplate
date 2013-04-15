@@ -85,7 +85,7 @@ define([
 
     var Experiment02View = Backbone.View.extend({
         el: $("#container"),
-        initialize: function(){
+        initialize: function(pos){
 
             this.width = window.innerWidth;
             this.height = window.innerHeight;
@@ -104,6 +104,11 @@ define([
             for(var i = 0; i < this.NUM_CONFETTI; i++){
                 this.confetti.push(new Confetti(this.context));
             }
+
+            if(pos == undefined){
+                pos = {x: this.width/2, y: this.height / 2};
+            }
+            this.mouseMove(pos);
 
             this.loop();
 
@@ -155,7 +160,10 @@ define([
         },
 
         mouseMove: function(pos){
-
+            for(var i = 0; i < this.NUM_CONFETTI; i++){
+                var rate = pos.x / this.width * 3 - 1 + 0.2 * Math.random()
+                this.confetti[i].xpos = rate;
+            }
         }
 
 
