@@ -33,18 +33,18 @@ define([
         this.rate = this.fl / (this.fl + this.currentPos.z);
 
         context.beginPath();
-        context.globalCompositeOperation = 'lighter';
+        //context.globalCompositeOperation = 'lighter';
         var randomNumber = (3*Math.random())|0;
 
         switch (randomNumber){
             case 0:
-                context.fillStyle = "rgba( 0, 0, 255, " + this.rate + ")";
+                context.fillStyle = "rgba( 150, 150, 150, " + this.rate + ")";
                 break;
             case 1:
-                context.fillStyle = "rgba( 255, 0, 0, " + this.rate + ")";
+                context.fillStyle = "rgba( 200, 200, 200, " + this.rate + ")";
                 break;
             case 2:
-                context.fillStyle = "rgba( 0, 255, 0, " + this.rate + ")";
+                context.fillStyle = "rgba( 220, 220, 220, " + this.rate + ")";
                 break;
         }
 
@@ -210,7 +210,7 @@ define([
 
 
             var centerPos = {x: this.width / 2, y: this.height / 2};
-            this.shape = new Shape(this.context, fl, 10, "#ffffff", centerPos);
+            this.shape = new Shape(this.context, fl, 1 + 5 * Math.random() , "#ffffff", centerPos);
 
 
             // variable about time
