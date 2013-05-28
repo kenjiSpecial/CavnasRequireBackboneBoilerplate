@@ -9,7 +9,7 @@ define([
 
 ], function($, _, Backbone, navModel, CanvasControlModel, projectsListTemplate){
     //var dataDate = [2012, 2013, 2014, 2015]
-    var dataDate = {"home": "April 08, 2013", "exp01": "April 08, 2013", "exp02": "April 08, 2013", "exp03": "April 15, 2013"};
+    var dataDate = {"home": "April 08, 2013", "exp01": "April 08, 2013", "exp02": "April 08, 2013", "exp03": "April 15, 2013", "exp04": "May 14, 2013"};
     var DateView = Backbone.View.extend({
         el: $("#mainDate"),
 

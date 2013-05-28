@@ -7,16 +7,18 @@ define([
     'views/experiments/experiment01',
     'views/experiments/experiment02',
     'views/experiments/experiment03',
+    'views/experiments/experiment04',
     'views/nav/nav',
     'views/date/date',
     'models/canvasControlModel'
-], function($, _, Backbone, HomeView, Experiment01View, Experiment02View, Experiment03View, NavView, DateView, CanvasControlModel){
+], function($, _, Backbone, HomeView, Experiment01View, Experiment02View, Experiment03View, Experiment04View, NavView, DateView, CanvasControlModel){
     var AppRouter = Backbone.Router.extend({
         routes: {
             // Define some URL routes
             'experiment01': 'showExp01',
             'experiment02': 'showExp02',
             'experiment03': 'showExp03',
+            'experiment04': 'showExp04',
 
             // Default
             '*actions': 'defaultAction'
@@ -25,7 +27,7 @@ define([
 
     var initialize = function(){
         var pos;
-        var homeView, experiment01View, experiment02View, experiment03View;
+        var homeView, experiment01View, experiment02View, experiment03View, experiment04View;
         var app_router = new AppRouter;
 
         function transForm(){
@@ -35,9 +37,9 @@ define([
                     case 1: experiment01View.remove(); break;
                     case 2: experiment02View.remove(); break;
                     case 3: experiment03View.remove(); break;
+                    case 4: experiment04View.remove(); break;
                 }
             }else{
-                console.log("transform undefined");
             }
 
         }
@@ -72,6 +74,17 @@ define([
             CanvasControlModel.set("previousId", 3);
             navView.changeStatus();
             dateView.change("exp03");
+
+        });
+
+        app_router.on('route:showExp04', function(){
+
+            CanvasControlModel.set("id", 4);
+            transForm();
+            experiment04View = new Experiment04View();
+            CanvasControlModel.set("previousId", 4);
+            navView.changeStatus();
+            dateView.change("exp04");
 
         });
 
